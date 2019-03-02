@@ -1,3 +1,4 @@
+#!/prod/moguterm/pyenv/bin/python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -9,8 +10,8 @@ Usage:
 Options:
   --baud=<baud>  baud rate on the serial line [default: 57600]
 """
-
 import sys
+import os
 import threading
 import serial
 import readline
@@ -77,8 +78,10 @@ class Terminal(object):
         rx_t.join()
 
 
-arguments = docopt(__doc__.format(prog=sys.argv[0]))
-history_file = "%s/.%s.history" % (expanduser("~"),sys.argv[0])
+prog = os.path.basename(sys.argv[0])
+arguments = docopt(__doc__.format(prog=prog))
+
+history_file = "%s/.%s_history" % (expanduser("~"),prog)
 readline.set_history_length(3)
 try:
     readline.read_history_file(history_file)
