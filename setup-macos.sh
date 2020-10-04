@@ -11,7 +11,7 @@ $PWD/pyenv/bin/python3 $PWD/RN2483-CLI.py "\$*"
 TXT
 chmod +x RN2483-CLI
 
-echo Making symlink in /usr/local/bin, might prompt for a password
+echo Making symlink in /usr/local/bin, this might prompt for a password
 sudo ln -sf $PWD/RN2483-CLI /usr/local/bin
 
-echo All done. remember to run rebase and then try something like: RN2483-CLI /dev/tty.usbserial-144110
+echo All done. Remember to run rehash and then try something like: RN2483-CLI /dev/tty.usbserial-144110
