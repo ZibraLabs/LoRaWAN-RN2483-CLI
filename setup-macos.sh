@@ -7,7 +7,7 @@ pyenv/bin/pip3 install -r requirements.txt
 echo Creating launcher script
 cat > RN2483-CLI <<TXT
 #!/bin/bash
-$PWD/pyenv/bin/python3 $PWD/RN2483-CLI.py "\$*"
+$PWD/pyenv/bin/python3 $PWD/RN2483-CLI.py "\$@"
 TXT
 chmod +x RN2483-CLI
 
