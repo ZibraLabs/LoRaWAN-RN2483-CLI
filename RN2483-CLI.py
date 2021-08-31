@@ -50,7 +50,12 @@ class Terminal(object):
                 self.run = False
                 self.ser.cancel_read()
                 break
-            self.ser.write(line.encode("utf8") + b"\r\n")
+
+            if line[-1:] == '\\':
+                self.ser.write(line[:-1].encode("utf8"))
+            else:
+                self.ser.write(line.encode("utf8") + b"\r\n")
+
             self.t = time.time()
             self.nl_state = True
 
